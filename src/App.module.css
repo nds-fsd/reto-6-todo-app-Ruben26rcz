@@ -1,0 +1,22 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0 1rem;
+  background-color: #F6F6F6;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+h1 {
+  color: #020202;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.counter {
+  color: #5F5F5F;
+  font-size: 12px;
+  padding-bottom: .5rem;
+}
