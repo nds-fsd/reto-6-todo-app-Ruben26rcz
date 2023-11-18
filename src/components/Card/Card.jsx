@@ -1,14 +1,14 @@
 import styles from './index.module.css'
 
-function Card() {
-
-  const title = 'Go to gym';
-
+function Card(props) {
+  const {text, fecha} = props;
   return (
     <div className={styles.card}>
         <div>
-          <p className={styles.title}>{title}</p>
-          <p>12/09/1996</p>
+          <p className={styles.title}>
+            {text}
+          </p>
+          <p>{fecha}</p>
         </div>
         <img src="src/assets/Delete.svg" alt="delete icon"/>
     </div>

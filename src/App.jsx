@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import styles from './App.module.css'
-import Card from './components/Card/Card'
+import CardsContainer from './components/CardsContainer/CardsContainer';
 import TodoInput from './components/TodoInput/TodoInput'
 
 function App() {
@@ -15,11 +15,7 @@ function App() {
       <div>
         <p className={styles.counter}>{`${numTasksDone} of ${totalTasks} tasks done`}</p>
         <div className={styles.cardsContainer}>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          <CardsContainer />
         </div>
       </div>
     </div>
