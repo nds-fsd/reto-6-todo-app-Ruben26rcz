@@ -1,11 +1,14 @@
-// eslint-disable-next-line no-unused-vars
 import styles from './index.module.css'
+import SubmitButton from '../SubmitButton/SubmitButton'
 
-function TodoInput() {
+function TodoInput(props) {
+  const {createAuthor} = props
 
   return (
-    <input placeholder="Enter your task">
-    </input>
+    <div className={styles.TodoInputContainer}>
+      <input placeholder="Enter your task"></input>
+      <SubmitButton />
+    </div>
   )
 }
 

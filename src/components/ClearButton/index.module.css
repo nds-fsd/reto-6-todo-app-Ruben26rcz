@@ -1,0 +1,11 @@
+.textButton {
+
+    text-align: center;
+    color: rgb(254, 82, 82);
+    background-color: inherit;
+    border: none;
+    margin: 0 auto;
+    height: 40px;
+    padding: 1rem;
+    cursor: pointer;
+}

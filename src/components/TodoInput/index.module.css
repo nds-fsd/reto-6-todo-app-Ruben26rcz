@@ -1,14 +1,15 @@
 input {
     height: 40px;
     padding: 1rem;
-    margin-bottom: 1.5rem;
+
     width: 100%;
-    max-width: 600px;
+    max-width: 400px;
     border-radius: .5rem;
     border: 1px solid #E1E1E1;
 }
 
-
-input:focus-visible {
-    border: #161616;
+.TodoInputContainer {
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: .5rem;
 }

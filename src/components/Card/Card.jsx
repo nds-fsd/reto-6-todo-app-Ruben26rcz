@@ -1,16 +1,19 @@
 import styles from './index.module.css'
 
 function Card(props) {
-  const {text, fecha} = props;
+  const {todo, deleteTodo} = props;
+  
   return (
     <div className={styles.card}>
         <div>
           <p className={styles.title}>
-            {text}
+            {todo.text}
           </p>
-          <p>{fecha}</p>
+          <p>{todo.fecha}</p>
         </div>
-        <img src="src/assets/Delete.svg" alt="delete icon"/>
+        <button className={styles.iconButton} onClick={()=>deleteTodo(todo.id)}>
+          <img src="src/assets/delete_icon.svg" alt="delete icon"/>
+        </button>
     </div>
   )
 }
