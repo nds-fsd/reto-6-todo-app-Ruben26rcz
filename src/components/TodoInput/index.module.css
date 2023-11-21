@@ -1,7 +1,6 @@
-input {
+.input {
     height: 40px;
     padding: 1rem;
-
     width: 100%;
     max-width: 400px;
     border-radius: .5rem;

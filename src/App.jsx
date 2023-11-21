@@ -40,6 +40,22 @@ function App() {
     }
   }
 
+  const updateTodo = async (id, done) => {
+    try {
+      const response = await fetch(`${url}/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(done)
+      });
+      if (response.ok) {
+        const json = await response.json();
+        setTodos(json);
+      }      
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   const deleteTodo = async (id) => {
     try {
       const response = await fetch(`${url}/${id}`, {
@@ -64,7 +80,7 @@ function App() {
     setReload(!reload);
   }
 
-  const numTasksDone = todos ? todos.filter(todo => todo.completed).length : 0;
+  const numTasksDone = todos ? todos.filter(todo => todo.done).length : 0;
   
   return todos && (
     <>
@@ -74,9 +90,12 @@ function App() {
         <p className={styles.counter}>{`${todos.length} of ${numTasksDone} tasks done`}</p>
         <CardsContainer
           todos={todos}
-          deleteTodo= {deleteTodo}
+          deleteTodo={deleteTodo}
+          updateTodo={updateTodo}
         />
-        <ClearButton />
+        <div className={styles.ClearButtonContainer}>
+          <ClearButton />
+        </div>
       </div>
     </>
   )

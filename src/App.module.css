@@ -20,3 +20,7 @@ h1 {
   font-size: 12px;
   padding-bottom: .5rem;
 }
+
+.ClearButtonContainer {
+  display: flex;
+}

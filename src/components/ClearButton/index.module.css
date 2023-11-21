@@ -1,6 +1,6 @@
 .textButton {
-
-    text-align: center;
+    display: inline-flex;
+    align-items: center;
     color: rgb(254, 82, 82);
     background-color: inherit;
     border: none;
@@ -8,4 +8,11 @@
     height: 40px;
     padding: 1rem;
     cursor: pointer;
+    border-radius: .5rem;
+    transition: 200ms;
 }
+
+.textButton:hover {
+    background-color: rgb(239, 239, 239);
+}
+
