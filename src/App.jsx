@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import styles from './App.module.css'
+import styles from './App.module.css';
 import CardsContainer from './components/CardsContainer/CardsContainer';
-import TodoInput from './components/TodoInput/TodoInput'
-import ClearButton from './components/ClearButton/ClearButton'
+import TodoInput from './components/TodoInput/TodoInput';
+import ClearButton from './components/ClearButton/ClearButton';
 
 function App() {
   const url = 'http://localhost:3001/todo';
@@ -20,23 +20,19 @@ function App() {
     }
   };
 
-  const createTodo = async () => {
+  const createTodo = async (value) => {
     try {
-      const newTodo = {
-        text: 'Soy nuevo',
-        fecha: new Date("2023-11-14")
-      }
       const response = await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newTodo)
+        body: JSON.stringify({ text: value, fecha: new Date(), done: false})
       });
       if (response.ok) {
-        const json = response.json();
+        const json = await response.json();
         setTodos(json);
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
 
@@ -52,7 +48,7 @@ function App() {
         setTodos(json);
       }      
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
 
@@ -87,11 +83,11 @@ function App() {
       <h1>My ToDo App 📝</h1>
       <TodoInput createTodo={createTodo}/>
       <div>
-        <p className={styles.counter}>{`${todos.length} of ${numTasksDone} tasks done`}</p>
+        <p className={styles.counter}>{`${numTasksDone} of ${todos.length} tasks done`}</p>
         <CardsContainer
           todos={todos}
-          deleteTodo={deleteTodo}
           updateTodo={updateTodo}
+          deleteTodo={deleteTodo}
         />
         <div className={styles.ClearButtonContainer}>
           <ClearButton />

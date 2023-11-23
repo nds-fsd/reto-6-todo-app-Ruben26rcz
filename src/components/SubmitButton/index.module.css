@@ -19,6 +19,10 @@
     background-color: rgb(82, 82, 235);
 }
 
+.primaryButton:disabled {
+    background-color: rgb(139, 139, 139);
+}
+
 .primaryButton svg {
     fill: white;
 }
