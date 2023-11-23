@@ -1,8 +1,8 @@
 import styles from './index.module.css'
 
-const ClearButton = () => {
+const ClearButton = ({clearCompleted}) => {
   return (
-    <button className={styles.textButton}>Delete completed todos</button>
+    <button className={styles.textButton} onClick={clearCompleted}>Delete completed todos</button>
   )
 }
 

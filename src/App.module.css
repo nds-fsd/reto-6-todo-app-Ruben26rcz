@@ -15,10 +15,32 @@ h1 {
   padding: 2rem 0;
 }
 
-.counter {
+.cardsHeader {
   color: #5F5F5F;
-  font-size: 12px;
-  padding-bottom: .5rem;
+  font-size: 14px;
+  margin-bottom: .5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+}
+
+.cardsHeader button{
+  height: 40px;
+  padding: 0 1rem;
+  border: none;
+  background-color: inherit;
+  color: #5D5EF8;
+  cursor: pointer;
+  border-radius: .5rem;
+  transition: 200ms;
+}
+.cardsHeader button:hover{
+  background-color: rgb(239, 239, 239);
+}
+.cardsHeader button:disabled{
+  color: rgb(186, 186, 186);
+  cursor: not-allowed;
 }
 
 .ClearButtonContainer {

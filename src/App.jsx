@@ -68,6 +68,39 @@ function App() {
     }
   }
 
+  const clearCompleted = async () => {
+    try {
+      const completedTodos = todos.filter(todo => todo.done);
+
+      await Promise.all(completedTodos.map(async todo => {
+        const response = await fetch(`${url}/${todo.id}`, {
+          method: 'DELETE',
+          headers: { 'Content-Type': 'application/json' },
+        });
+
+        if (!response.ok) {
+          console.log(`Failed to delete todo with id ${todo.id}`);
+        }
+      }));
+      forceReload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const hasCompletedTodos = todos && todos.some(todo => todo.done);
+
+  // Esta funcion es para el botón de seleccionar todos, pero no funciona corrrectamente 
+  // const selectAll = async () => {
+  //   try {
+  //     const updatedTodos = todos.map(todo => ({ ...todo, done: true }));
+  //     await Promise.all(updatedTodos.map(todo => updateTodo(todo.id, { done: true })));
+  //     forceReload();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
   useEffect(() => {
     getTodos();
   }, [reload]);
@@ -76,6 +109,8 @@ function App() {
     setReload(!reload);
   }
 
+  
+
   const numTasksDone = todos ? todos.filter(todo => todo.done).length : 0;
   
   return todos && (
@@ -83,15 +118,23 @@ function App() {
       <h1>My ToDo App 📝</h1>
       <TodoInput createTodo={createTodo}/>
       <div>
-        <p className={styles.counter}>{`${numTasksDone} of ${todos.length} tasks done`}</p>
+        <div className={styles.cardsHeader}>
+          <p className={styles.counter}>{`${numTasksDone} of ${todos.length} tasks done`}</p>
+          {/*
+          Este boton funciona actualizando la pagina manualmente, como no funciona correctamente, no lo añado :(
+          <button onClick={selectAll} disabled>Select all</button>
+          */}
+        </div>
         <CardsContainer
           todos={todos}
           updateTodo={updateTodo}
           deleteTodo={deleteTodo}
         />
-        <div className={styles.ClearButtonContainer}>
-          <ClearButton />
-        </div>
+        {hasCompletedTodos && (
+          <div className={styles.ClearButtonContainer}>
+            <ClearButton clearCompleted={clearCompleted}/>
+          </div>
+        )}
       </div>
     </>
   )
