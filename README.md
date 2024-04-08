@@ -1,4 +1,4 @@
-# MenuBot
+# To do App (Frontend Repo)
 
 This is the frontend repo of the To Do app project.
 This project was an exercise proposed by the teachers at Nuclio School during the Full Stack Developer Bootcamp.
